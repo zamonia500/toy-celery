@@ -8,12 +8,15 @@
 
 ### MongoDB
 
-| Info 종류 | Name             | Description                     |      |
-| --------- | ---------------- | ------------------------------- | ---- |
-| Path      | images           | image 들이 저장되는 최상위 폴더 |      |
-| Path      | images/original  | 원본 이미지들이 저장되는 폴더   |      |
-| Path      | images/thumbnail | 썸네일 이미지들이 저장되는 폴더 |      |
-|           |                  |                                 |      |
+| Info 종류      | Name                        | Description                                                  |      |
+| -------------- | --------------------------- | ------------------------------------------------------------ | ---- |
+| Path           | images                      | image 들이 저장되는 최상위 폴더                              |      |
+| Path           | images/original             | 원본 이미지들이 저장되는 폴더                                |      |
+| Path           | images/thumbnail            | 썸네일 이미지들이 저장되는 폴더                              |      |
+| Image          | filename(unique)            | 동일한 이름의 이미지 파일이 넘어온다면 <br />index number를 붙여서 unique 하게 만든 다음에 db에 넣고<br />파일 해당 파일 이름으로 저장한다. |      |
+| Image metadata | image-usage                 | 이미지들의 usage [training, test, validation, unuse]         |      |
+| Image metadata | size (width, height, depth) | 이미지 크기와 depth                                          |      |
+|                |                             |                                                              |      |
 
 
 
