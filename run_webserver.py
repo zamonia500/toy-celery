@@ -1,20 +1,9 @@
-from flask import Flask, request
-from flask_restplus import Resource, Api
+from flask import Flask
+from webserver.apis import api
 
 app = Flask(__name__)
-api = Api(app)
+api.init_app(app)
 
-todos = {}
+app.run(debug=True)
 
-@api.route('/<string:todo_id>')
-class TodoSimple(Resource):
-    def get(self, todo_id):
-        return {todo_id: todos[todo_id]}
 
-    def put(self, todo_id):
-        print(todo_id)
-        todos[todo_id] = request.form['data']
-        return {todo_id: todos[todo_id]}
-
-if __name__ == '__main__':
-    app.run(debug=True)
