@@ -1,5 +1,5 @@
 from flask import Flask, url_for, redirect
-from webserver.apis.flasks import blueprint as api1_0
+from mantra.webserver.apis.flasks import blueprint as api1_0
 
 app = Flask(__name__)
 app.register_blueprint(api1_0)
