@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Markdown extendsion settings
+.idea/
+
+# data folder for DB & images
+out/
