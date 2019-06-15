@@ -2,7 +2,7 @@ from uuid import uuid4
 
 from flask_restplus import Namespace, Resource
 
-from mantra.db.mongo_db import MongoDB
+from mantra.db.mongo_db import MongoDB as DB
 
 api = Namespace('projects', description='API for projects')
 
@@ -19,6 +19,10 @@ class Project(Resource):
     @api.expect(Parsers.project_post_parser)
     def post(self):
         args = Parsers.project_post_parser.parse_args()
-        print(args)        
-        db = MongoDB()
-        # results = db.create_project('new project', uuid4(), 'comeon~')
+        db = DB()
+        results = db.create_project(args['name'], 
+                                    str(uuid4()), 
+                                    args['description'], 
+                                    args['category'])
+        for result in results:
+            print(result)

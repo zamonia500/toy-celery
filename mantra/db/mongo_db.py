@@ -2,7 +2,8 @@ from uuid import uuid4
 
 from pymongo import MongoClient
 
-from .db_abc import DBTemplete
+from mantra.db.db_abc import DBTemplete
+from mantra.utils.flask_configs import FlaskConfigs
 '''
 start application
 주어지는 정보들
@@ -18,10 +19,6 @@ connect를 해 본 다음에
 
 기본 기능을 하는 것들이 필요할 것 같다
 '''
-# import pymongo
-# MONGO_SERVER_IP = '127.0.0.1'
-# MONGO_SERVER_PORT = 27017 # mongoDB default port
-
 # conn = pymongo.MongoClient(MONGO_SERVER_IP, MONGO_SERVER_PORT)
 # db = conn.AAA
 # collection = db.test
@@ -35,8 +32,9 @@ connect를 해 본 다음에
 
 class MongoDB(DBTemplete):
 
-    def create_project(self, project_name, project_id, description, **kwargs):
-        client = MongoClient('mongodb://localhost', 27017)
+    def create_project(self, project_name, project_id, description, category, **kwargs):
+
+        client = MongoClient(FlaskConfigs.db_url())
         db = client.celery_db
         collection = db.projects
         project_info = {
