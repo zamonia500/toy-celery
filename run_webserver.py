@@ -1,8 +1,12 @@
-from flask import Flask
-from webserver.apis.flasks import api
+from flask import Flask, url_for, redirect
+from webserver.apis.flasks import blueprint as api1_0
 
 app = Flask(__name__)
-api.init_app(app)
+app.register_blueprint(api1_0)
+
+@app.route('/')
+def default_swagger():
+    return redirect(url_for('api1.0.doc'))
 
 app.run(debug=True)
 
