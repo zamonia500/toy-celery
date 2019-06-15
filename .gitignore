@@ -108,3 +108,6 @@ venv.bak/
 
 # data folder for DB & images
 out/
+
+# git wiki dir
+wiki/

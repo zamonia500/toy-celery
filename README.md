@@ -60,6 +60,7 @@ python type hinting을 넣는다.
 ### Start Backend
 1. install mongodb
 2. install python requirements
-3. run executor
-4. run broker (If needed)
-5. run webserver
+3. run mongodb
+4. run executor
+5. run broker (If needed)
+6. run webserver
